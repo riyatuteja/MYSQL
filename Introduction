@@ -1,0 +1,15 @@
+MYSQL IS BASICALLY A SOFTWARE USED FOR DATABASE MANAGEMENT.
+MySQl is a Relational Database Management System.  
+
+(DATABASE)- It is basically the collection of data stored in a format that it can be accessed easily.
+
+
+              DBMS
+ RELATIONAL          NON-RELATIONAL
+1.USES SQL          1.DOCUMENT BASED  
+2.TABLE BASED       2.MONGODB     
+3.ORACLE            3.CASSANDRA        
+4.MYSQL             4.REDIS
+5.PORTGESESQL         
+          
+          
