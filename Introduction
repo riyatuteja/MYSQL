@@ -3,7 +3,8 @@ MySQl is a Relational Database Management System.
 
 (DATABASE)- It is basically the collection of data stored in a format that it can be accessed easily.
 
-
+COMPUTER ➡️ DATABASE          ➡️ DATA
+SYSTEM   ⬅️ MANAGEMENT SYYTEM ⬅️ BASE
               DBMS
  RELATIONAL          NON-RELATIONAL
 1.USES SQL          1.DOCUMENT BASED  
@@ -13,3 +14,10 @@ MySQl is a Relational Database Management System.
 5.PORTGESESQL         
           
           
+ADVANTAGES OF MySQL
+1. It is cross platform 
+2. It is open source(designed to be publically accessible like LINUX)
+3. Used with multiple languages(Pyhton,PHP,C#,NodeJS)
+4. Is RDBMS
+5. MySQL Server works in client,server or embedded systems
+6. MySQL Database Server  is fast,reliable and easy to use
