@@ -1,0 +1,48 @@
+CREATE TABLE table_name(
+column1 datatype;
+column2 datatype;
+column3 datatype;
+column4 datatype;
+....
+);
+
+Types of datatypes: String ,Numeric and Date&Time
+ ^STRING
+  -CHAR(size) 0-255
+  -VARCHAR(size) 0-65535
+  -BINARY(size) 0-255
+  -VARBINARY(size) 0-65535
+  -TINYTEXT 255(characters)
+  -TEXT(size) 65,535 bytes 
+  -MEDIUMTEXT 16,777,215 characters
+  -LONGTEXT 4,294,967,295 characters
+  -TINYBLOB 255 bytes 
+  -BLOB 65,535 bytes 
+  -MEDIUMBLOB  16,777,215 bytes 
+  -LONGBLOB 4,294,967,295 bytes
+  -ENUM(val1,val2,val3....) list upto 65,535 values
+  -SET(val1,val2,val3....) list upto 64 values
+ 
+ ^NUMERIC
+   -BIT(size)
+   -TINYINT(size)
+   -INT(size)
+   -INTEGER(size)
+   -SMALLINT(size)
+   -MEDIUMINT(size)
+   -BIGINT(size)
+   -BOOL
+   -BOOLEAN 0/1
+   -FLOAT(P) P.P
+   -DOUBLE(size,d) size.d
+   -DEC(size,d) size=60,d=30
+   -DECIMAL(size,d)
+   
+  ^DATE&TIME
+   -DATE YYYY-MM-DD
+   -DATETIME(FSP) YYYY-MM-DD HH-MM-SS
+   -TIMESTAMP(FSP) YYYY-MM-DD HH-MM-SS (OLD DATES)
+   -TIME HH-MM-SS
+   -YEAR YYYY
+   
+   
