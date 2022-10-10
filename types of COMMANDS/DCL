@@ -1,0 +1,4 @@
+DCL:
+DCL is short name of Data Control Language which includes commands such as GRANT and mostly concerned with rights, permissions and other controls of the database system.
+● GRANT - allow users access privileges to the database
+● REVOKE - withdraw users access privileges given by using the GRANT command

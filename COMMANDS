@@ -1,0 +1,227 @@
+SELECT:
+The SELECT statement is used to select data from a database.
+Syntax -
+● SELECT column1, column2, ... FROM table_name;
+
+● Here, column1, column2, ... are the field names of the table you want to select 
+data from. 
+If you want to select all the fields available in the table, use the 
+following syntax:
+ ● SELECT * FROM table_name;
+
+Ex –
+● SELECT CustomerName, City FROM Customers;
+
+SELECT DISTINCT:
+The SELECT DISTINCT statement is used to return only distinct (different) values.
+Syntax –
+     
+ ● SELECT DISTINCT column1, column2, ... FROM table_name;
+Ex –
+● SELECT DISTINCT Country FROM Customers;
+
+WHERE:
+The WHERE clause is used to filter records.
+Syntax –
+● SELECT column1, column2, ... FROM table_name
+WHERE condition;
+Ex –
+● SELECT * FROM Customers WHERE Country='Mexico';
+     Operator                   Description
+      =                           Equal
+      >                         Greater than
+      <                         Less than
+      >=                        Greater than or equal
+      <=                        Less than or equal
+      <>                         Not equal. 
+      Note: In some versions of SQL this operator may be written as !=
+       
+AND, OR and NOT:
+The WHERE clause can be combined with AND, OR, and NOT operators.
+The AND and OR operators are used to filter records based on more than one condition:
+● The AND operator displays a record if all the conditions separated by AND are TRUE. 
+● The OR operator displays a record if any of the conditions separated by OR is TRUE.
+The NOT operator displays a record if the condition(s) is NOT TRUE.
+ 
+Syntax –
+● SELECT column1, column2, ...
+FROM table_name
+WHERE condition1 AND condition2 AND condition3 ...;
+● SELECT column1, column2, ...
+FROM table_name
+WHERE condition1 OR condition2 OR condition3 ...;
+● SELECT column1, column2, ... FROM table_name
+WHERE NOT condition;
+Ex –
+● SELECT * FROM Customers
+WHERE Country='Germany' AND City='Berlin';
+● SELECT * FROM Customers
+WHERE Country='Germany' AND (City='Berlin' OR City='Münche
+
+ORDER BY:
+The ORDER BY keyword is used to sort the result-set in ascending or descending order.
+The ORDER BY keyword sorts the records in ascending order by default.
+ To sort the records in descending order, use the DESC keyword.
+Syntax –
+● SELECT column1, column2, ...
+FROM table_name
+ORDER BY column1, column2, ... ASC|DESC;
+Ex –
+● SELECT * FROM Customers ORDER BY Country;
+● SELECT * FROM Customers
+ORDER BY Country ASC, CustomerName DESC;
+
+INSERT INTO:
+The INSERT INTO statement is used to insert new records in a table.
+  
+Syntax –
+● INSERT INTO table_name (column1, column2, column3, ...)
+  VALUES (value1, value2, value3, ...);
+● INSERT INTO table_name
+VALUES (value1, value2, value3, ...);
+*In the second syntax, make sure the order of the values is in the same order as the 
+columns in the table.
+Ex –
+● INSERT INTO Customers (CustomerName, ContactName, Address, City, PostalCode, Country)
+VALUES ('Cardinal', 'Tom B. Erichsen', 'Skagen 21', 'Stavanger', '4006', 'Norway');
+
+NULL Value:
+It is not possible to test for NULL values with comparison operators,
+ such as =, <, or <>. We will have to use the IS NULL and IS NOT NULL 
+ operators instead.
+Syntax –
+● SELECT column_names
+FROM table_name
+WHERE column_name IS NULL;
+● SELECT column_names
+FROM table_name
+WHERE column_name IS NOT NULL;
+Ex –
+● SELECT CustomerName, ContactName, Address FROM Customers
+WHERE Address IS NULL;
+
+UPDATE:
+The UPDATE statement is used to modify the existing records in a table.
+Syntax –
+● UPDATE table_name
+  
+ SET column1 = value1, column2 = value2, ... WHERE condition;
+Ex –
+● UPDATE Customers
+SET ContactName = 'Alfred Schmidt', City= 'Frankfurt' WHERE CustomerID = 1;
+
+DELETE:
+The DELETE statement is used to delete existing records in a table.
+Syntax –
+● DELETE FROM table_name WHERE condition; 
+● DELETE FROM table_name;
+In 2ndsyntax, all rows are deleted. The table structure, attributes, and
+ indexes will be intact
+Ex –
+● DELETE FROM Customers WHERE CustomerName='Alfreds Futterkiste';
+
+SELECT TOP:
+The SELECT TOP clause is used to specify the number of records to return.
+Syntax –
+● SELECT TOP number|percent column_name(s) FROM table_name
+WHERE condition;
+● SELECT column_name(s) FROM table_name WHERE condition LIMIT number;
+● SELECT column_name(s)
+FROM table_name
+ORDER BY column_name(s) FETCH FIRST number ROWS ONLY;
+● SELECT column_name(s)
+FROM table_name
+WHERE ROWNUM <= number;
+  
+ *In case the interviewer asks other than the TOP, rest are also correct. 
+ (Diff. DB Systems)
+Ex –
+● SELECT TOP 3 * FROM Customers; 
+● SELECT * FROM Customers
+LIMIT 3;
+● SELECT * FROM Customers
+FETCH FIRST 3 ROWS ONLY;
+
+
+Aggregate Functions:
+1.MIN():
+The MIN() function returns the smallest value of the selected column.
+ Syntax –
+● SELECT MIN(column_name) FROM table_name WHERE condition;
+Ex –
+● SELECT MIN(Price) AS SmallestPrice FROM Products;
+2.MAX():
+The MAX() function returns the largest value of the selected column.
+Syntax –
+● SELECT MAX(column_name) FROM table_name WHERE condition;
+Ex –
+● SELECT MAX(Price) AS LargestPrice FROM Products;
+3.COUNT():
+The COUNT() function returns the number of rows that matches a specified criterion.
+Syntax –
+● SELECT COUNT(column_name)
+ 
+ FROM table_name WHERE condition;
+Ex –
+● SELECT COUNT(ProductID) FROM Products;
+4.AVG():
+The AVG() function returns the average value of a numeric column.
+Syntax –
+● SELECT AVG(column_name) FROM table_name WHERE condition;
+Ex –
+● SELECT AVG(Price) FROM Products;
+5.SUM():
+The SUM() function returns the total sum of a numeric column.
+Syntax –
+● SELECT SUM(column_name) FROM table_name WHERE condition;
+Ex –
+● SELECT SUM(Quantity) FROM OrderDetails;
+6.LIKE Operator:
+The LIKE operator is used in a WHERE clause to search for a specified pattern 
+in a column. There are two wildcards often used in conjunction with the LIKE operator:
+● The percent sign (%) represents zero, one, or multiple characters 
+● The underscore sign (_) represents one, single character
+Syntax –
+ 
+ ● SELECT column1, column2, ... FROM table_name
+WHERE columnN LIKE pattern;
+    LIKE Operator
+Description
+WHERE CustomerName LIKE 'a%'           Finds any values that start with "a"
+WHERE CustomerName LIKE '%a'.          Finds any values that end with "a"
+WHERE CustomerName LIKE '%or%'.        Finds any values that have "or" in any position
+WHERE CustomerName LIKE '_r%'          Finds any values that have "r" in the
+                                       second position
+WHERE CustomerName LIKE 'a_%'.         Finds any values that start with "a" and
+                                       are at least 2 characters in length
+WHERE CustomerName LIKE 'a__%'.        Finds any values that start with "a" and are at
+                                       least 3 characters in length
+WHERE ContactName LIKE 'a%o'           Finds any values that start with "a" and 
+                                       ends with "o"
+    
+7.IN:
+The IN operator allows you to specify multiple values in a WHERE clause. 
+The IN operator is a shorthand for multiple OR conditions.
+Syntax –
+● SELECT column_name(s)
+FROM table_name
+WHERE column_name IN (value1, value2, ...);
+● SELECT column_name(s)
+FROM table_name
+WHERE column_name IN (SELECT STATEMENT);
+Ex –
+● SELECT * FROM Customers
+WHERE Country IN ('Germany', 'France', 'UK');
+● SELECT * FROM Customers
+WHERE Country IN (SELECT Country FROM Suppliers);
+8.BETWEEN:
+The BETWEEN operator selects values within a given range.
+ The values can be numbers, text, or dates.
+The BETWEEN operator is inclusive: begin and end values are included.
+Syntax –
+● SELECT column_name(s)
+FROM table_name
+WHERE column_name BETWEEN value1 AND value2;
+Ex –
+● SELECT * FROM Products
+WHERE Price BETWEEN 10 AND 20;

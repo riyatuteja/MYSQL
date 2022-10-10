@@ -1,0 +1,6 @@
+TCL:
+TCL is short name of Transaction Control Language which deals with a transaction 
+within a database.
+● COMMIT - commits a Transaction
+● ROLLBACK - rollback a transaction in case of any error occurs
+● SAVEPOINT - to roll back the transaction making points within groups

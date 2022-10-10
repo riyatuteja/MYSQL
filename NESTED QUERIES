@@ -1,0 +1,11 @@
+A nested query is a query that has another query embedded within it. 
+The embedded query is called a subquery.
+
+EXAMPLE:
+SELECT * FROM student
+WHERE classID = (
+   SELECT id
+   FROM class
+   WHERE noofstudents = (
+      SELECT MAX(noofstudents)
+      FROM class));
